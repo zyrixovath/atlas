@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Solar System | ATLAS S34</title><link rel="stylesheet" href="css/atlas.css">
+<script type="importmap">{"imports":{"three":"https://esm.sh/three@0.170.0","three/addons/":"https://esm.sh/three@0.170.0/examples/jsm/"}}</script></head>
+<body><main class="container">
+<div class="eyebrow">01 / CELESTIAL MECHANICS</div><h1 class="page-title">SOLAR SYSTEM <span>EPHEMERIS</span></h1>
+<div class="grid two"><section class="panel canvas-panel"><div class="eyebrow">ORBITAL OVERVIEW · NOT TO SCALE</div><canvas id="orrery"></canvas></section><section class="panel"><div class="section-head"><div><div class="eyebrow">LIVE UTC</div><h2>Planetary Reference Table</h2></div><button class="btn tiny" id="syncNow">SYNC NOW</button></div><div style="overflow:auto;max-height:390px"><table><thead><tr><th>BODY</th><th>LONGITUDE</th><th>DISTANCE</th><th>VELOCITY</th></tr></thead><tbody id="bodyList"></tbody></table></div><p class="muted">Values are illustrative reference elements, not precision live ephemerides. Select a body to pre-load it as the mission target.</p></section></div>
+</main><footer class="foot">ATLAS · TEAM NEBULLA KNIGHTS · S34 · ASTRA 2026 — EDUCATIONAL SOFTWARE PROTOTYPE</footer>
+<script type="module" src="js/taskbar.js"></script><script type="module" src="js/solarLive.js"></script></body></html>

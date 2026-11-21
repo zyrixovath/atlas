@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Telemetry & Bio-Rad | ATLAS S34</title><link rel="stylesheet" href="css/atlas.css">
+<script type="importmap">{"imports":{"three":"https://esm.sh/three@0.170.0","three/addons/":"https://esm.sh/three@0.170.0/examples/jsm/"}}</script></head>
+<body><main class="container">
+<div class="eyebrow">04 / CREW SYSTEMS & DATA INTEGRITY</div><h1 class="page-title">TELEMETRY <span>CONSOLE</span></h1>
+<div class="grid two"><section class="panel"><div class="eyebrow">RADIATION EXPOSURE EXPLORER</div><h2>Illustrative Shielding Model</h2><p class="muted">Model uses an example exponential attenuation curve. It is not a medical assessment or mission radiation prediction.</p><div class="field"><label>WATER / POLYETHYLENE SHIELDING THICKNESS</label><input id="shield" type="range" min="0" max="50" value="10"><b id="shieldVal" class="mono">10 cm</b></div><div class="metric"><span>MODELLED CUMULATIVE DOSE</span><strong id="dose">—</strong></div><p id="risk" class="status warn">MODELLED BAND</p><div class="notice">Radiation risk depends on mission duration, solar events, geometry, material composition and biological factors. This simplified model must not be used for crew health decisions.</div></section>
+<section class="panel"><div class="eyebrow">CRYPTOGRAPHIC PACKET INTEGRITY</div><h2>SHA-256 Uplink Signer</h2><p class="muted">Generate a SHA-256 digest for a local demonstration packet using Node.js crypto.</p><button class="btn" id="signPacket">GENERATE & HASH PACKET →</button><div class="field"><label>SHA-256 DIGEST</label><div id="hash" class="terminal">No packet generated.</div></div><div class="eyebrow">AUDIT STREAM</div><pre id="terminal" class="terminal">ATLAS TELEMETRY CONSOLE READY
+Awaiting local packet event...</pre></section></div>
+</main><footer class="foot">ATLAS · TEAM NEBULLA KNIGHTS · S34 · ASTRA 2026 — EDUCATIONAL SOFTWARE PROTOTYPE</footer>
+<script type="module" src="js/taskbar.js"></script><script type="module" src="js/telemetryBio.js"></script></body></html>

@@ -1,0 +1,1 @@
+const base='http://localhost:3000';for(const route of ['/api/health','/api/missions','/api/ephemeris','/api/rover-paths','/api/telemetry']){try{const r=await fetch(base+route);console.log(route,r.status,JSON.stringify(await r.json()).slice(0,200));if(!r.ok)process.exitCode=1;}catch(e){console.error(route,e.message);process.exitCode=1;}}

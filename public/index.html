@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mission Command | ATLAS S34</title><link rel="stylesheet" href="css/atlas.css">
+<script type="importmap">{"imports":{"three":"https://esm.sh/three@0.170.0","three/addons/":"https://esm.sh/three@0.170.0/examples/jsm/"}}</script></head>
+<body><main class="container">
+<section class="hero"><canvas id="starfield"></canvas><div class="hero-copy"><div class="eyebrow">ASTRA 2026 · SPACE SYSTEMS COMMAND / S34</div><h1>ATLAS<span>.</span><br>MISSION CONTROL</h1><p>Autonomous Trajectory, Launch & Surface Navigation System. An integrated orbit-to-surface mission architecture built by Team Nebulla Knights.</p><div class="actions"><a class="btn" href="planner.html">LAUNCH MISSION PLANNER →</a><a class="btn ghost" href="solar.html">VIEW SOLAR SYSTEM →</a></div></div></section>
+<div class="section-head"><span id="backendStatus" class="status warn">CHECKING BACKEND...</span></div><div class="section-head"><div><div class="eyebrow">GROUND SEGMENT / STATUS</div><h2>ISRO Data Portal Gateway</h2></div><span class="status warn">REFERENCE LINKS · NO LIVE FEED</span></div><div class="portal-grid" id="portalStatus"></div>
+
+<div class="section-head"><div><div class="eyebrow">LIVE EXTERNAL DATA / NRSC</div><h2>Bhuvan Geospatial Service</h2></div><span id="bhuvanStatus" class="status warn">CONNECTING TO BHUVAN WMS…</span></div>
+<section class="panel">
+  <div class="grid two" style="align-items:end">
+    <div><div class="eyebrow">OFFICIAL OGC WEB MAP SERVICE</div><p class="muted">ATLAS requests the live Bhuvan layer catalogue from NRSC and renders the selected map through the ATLAS backend proxy. Coverage and available themes depend on the layer selected.</p></div>
+    <div class="field"><label>BHUVAN MAP LAYER</label><select id="bhuvanLayer"><option>Loading official layer catalogue…</option></select></div>
+  </div>
+  <div class="actions"><button class="btn" id="loadBhuvan">LOAD BHUVAN MAP →</button><a class="btn ghost" href="https://bhuvan.nrsc.gov.in/" target="_blank" rel="noreferrer">OPEN OFFICIAL BHUVAN ↗</a></div>
+  <div style="margin-top:16px;background:#050a12;border:1px solid #24384a;border-radius:7px;min-height:260px;display:grid;place-items:center;overflow:hidden"><img id="bhuvanMap" alt="Selected live Bhuvan WMS map layer" style="width:100%;height:auto;display:none"><p id="bhuvanMapMessage" class="muted">Waiting for Bhuvan service response…</p></div>
+  <p id="bhuvanAttribution" class="muted">Map attribution: Bhuvan, National Remote Sensing Centre (NRSC), ISRO.</p>
+</section>
+
+<div class="section-head"><div><div class="eyebrow">MISSION SYSTEMS</div><h2>Mission Architecture</h2></div></div>
+<div class="grid four">
+<a class="module" href="solar.html"><span class="num">01 / EPHEMERIS</span><h3>Solar System</h3><p>Planetary reference positions, orbital visualization and body inspection.</p></a>
+<a class="module" href="planner.html"><span class="num">02 / FLIGHT DYNAMICS</span><h3>Mission Planner</h3><p>Transfer estimates, launch planning concepts and propulsion mass-ratio simulation.</p></a>
+<a class="module" href="surface.html"><span class="num">03 / SURFACE OPS</span><h3>Surface Navigation</h3><p>Synthetic lunar, Martian and Venusian terrain with rover pathfinding demo.</p></a>
+<a class="module" href="telemetry.html"><span class="num">04 / CREW & DATA</span><h3>Telemetry & Bio-Rad</h3><p>Illustrative radiation model and SHA-256 telemetry integrity console.</p></a></div>
+<div class="section-head"><div><div class="eyebrow">LOCAL PERSISTENCE</div><h2>Saved Mission Registry</h2></div></div><div class="panel"><div style="overflow:auto"><table><thead><tr><th>MISSION</th><th>ROUTE</th><th>MODE</th><th>ACTIONS</th></tr></thead><tbody id="missionRows"></tbody></table></div></div>
+</main><footer class="foot">ATLAS · TEAM NEBULLA KNIGHTS · S34 · ASTRA 2026 — EDUCATIONAL SOFTWARE PROTOTYPE</footer>
+<script type="module" src="js/taskbar.js"></script><script type="module" src="js/homePage.js"></script></body></html>
