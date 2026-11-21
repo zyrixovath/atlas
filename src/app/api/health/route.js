@@ -1,3 +1,41 @@
-import { NextResponse } from 'next/server';import { database } from '../../../lib/db.js';
-export const runtime='nodejs';export const dynamic='force-dynamic';
-export async function GET(){try{const stats=await database(({db,rows})=>({missions:rows(db,'SELECT COUNT(*) AS count FROM missions')[0].count,roverPaths:rows(db,'SELECT COUNT(*) AS count FROM rover_paths')[0].count,telemetryPackets:rows(db,'SELECT COUNT(*) AS count FROM telemetry_logs')[0].count}));return NextResponse.json({status:'ok',database:'SQLite',storage:'data/atlas_mission.db',timestamp:new Date().toISOString(),stats,python:'optional; Next.js API runs independently'});}catch(e){return NextResponse.json({status:'error',database:'unavailable',error:e.message},{status:503});}}
+
+import { NextResponse } from "next/server";
+import { query } from "../../../lib/db.js";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  try {
+    const result = await query(`
+      SELECT
+        (SELECT COUNT(*) FROM missions) AS missions,
+        (SELECT COUNT(*) FROM rover_paths) AS rover_paths,
+        (SELECT COUNT(*) FROM telemetry_logs) AS telemetry_logs
+    `);
+
+    return NextResponse.json({
+      status: "ok",
+      database: "Supabase PostgreSQL",
+      connected: true,
+      timestamp: new Date().toISOString(),
+      stats: {
+        missions: Number(result.rows[0].missions),
+        roverPaths: Number(result.rows[0].rover_paths),
+        telemetryPackets: Number(result.rows[0].telemetry_logs)
+      }
+    });
+  } catch (error) {
+    console.error("ATLAS health check failed:", error);
+
+    return NextResponse.json(
+      {
+        status: "error",
+        database: "unavailable",
+        connected: false,
+        error: error.message
+      },
+      { status: 503 }
+    );
+  }
+}
